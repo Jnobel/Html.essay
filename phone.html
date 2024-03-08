@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of the Internet</title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('desk.PNG') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .phone-container {
+    width: 60vw;
+    max-width: 600px;
+    height: calc(60vw * 1.33);
+    max-height: 800px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    border: 16px solid #1b1b1b;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Hide the overflow */
+    display: flex; /* Use flexbox to position the content */
+    flex-direction: column; /* Stack children vertically */
+  }
+
+  .phone-container::after {
+    content: '';
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    width: 40px;
+    height: 0px;
+    background: #000;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+
+  .app-content {
+    flex-grow: 1; /* Allow the content area to grow */
+    overflow-y: auto; /* Allow scrolling */
+    position: relative; /* Needed for absolute positioning of children */
+    padding: 1em; /* Adjust padding to your preference */
+  }
+
+  .nav-buttons {
+    width: 100%; /* Take up the full width */
+    text-align: center;
+    padding: 1em; /* Adjust padding to your preference */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+
+  .nav-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+    /* MLA format styles */
+    header.mla-header {
+      text-align: left;
+      font-family: 'Times New Roman', serif;
+      font-size: 12px;
+      margin-top: 0.5em;
+    }
+
+    h1, h2, p, li {
+      font-family: 'Times New Roman', serif;
+      text-align: justify;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0.5em 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0.5em 0;
+    }
+
+    p, li {
+      font-size: 12px;
+      margin: 0.5em 0;
+    }
+
+    p {
+      text-indent: 0.5in;
+      line-height: 2;
+    }
+
+    ul.bibliography {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.bibliography li {
+      margin-left: 0.5in;
+    }
+
+    .page {
+      /* ... existing styles ... */
+      display: none; /* Hide all pages by default */
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .page.active {
+      display: block; /* Only the active page is displayed */
+    }
+
+    /* Adjust the z-index for the flip animation */
+    .page.flip {
+      z-index: 2;
+    }
+
+    .page.active {
+      z-index: 1;
+    }
+
+ 
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .phone-container {
+        /* Adjust the height and width as necessary for smaller devices */
+        width: 80vw;
+        height: calc(80vw * 1.33);
+      }
+    }
+
+    @media (orientation: landscape) {
+      .phone-container {
+        /* Different sizing rules for landscape */
+        width: 50vh;
+        height: calc(50vh * 1.33);
+      }
+    }
+
+    /* New CSS additions for dynamic lighting effect and desk appearance */
+    .phone-container {
+      /* Existing styles for size and border-radius */
+      width: 60vw;
+      max-width: 600px;
+      height: calc(60vw * 1.33);
+      max-height: 800px;
+      border-radius: 24px;
+
+      /* Simulated bezel */
+      border: 27px solid #2a2a2a; /* Dark bezel; adjust color as needed */
+      box-sizing: border-box; /* Ensures the padding is included in the width */
+
+      /* Basic shadow for depth */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+      /* Simulate a reflection on the screen with a gradient */
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+      ), #fff; /* The base color is white for the screen */
+      
+      /* Center the container */
+      position: relative;
+      margin: auto;
+
+      /* Simulate the tablet's 'button' */
+      /* ... existing pseudo-element styles ... */
+    }
+
+    /* Enhanced shadow for dynamic lighting effect */
+    .phone-container::before {
+      content: '';
+      position: absolute;
+      top: -5px; right: -2px; bottom: -2px; left: -2px;
+      z-index: -1;
+      background: inherit;
+      border-radius: inherit;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.6), 
+                  0 20px 40px rgba(0, 0, 0, 0.4), 
+                  inset 0 0 60px rgba(255, 255, 255, 0.1);
+    }
+   /* Existing CSS styles */
+
+/* @media print styles */
+@media print {
+  /* Reset any previously applied styles */
+  * {
+    all: revert;
+  }
+
+  /* Set the base printing styles */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: none;
+    overflow: visible;
+    width: auto;
+    height: auto;
+  }
+
+  /* Set up the container for the content */
+  .phone-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: visible;
+    border: none;
+  }
+
+  /* Force every .page to display */
+  .page {
+    display: block !important;
+    position: static !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: auto !important;
+    page-break-after: always !important; /* Each page will be on a new sheet */
+    margin: 0 !important;
+    padding: 0in; 
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Ensure text is visible */
+  .mla-header, h1, h2, p {
+    color: black;
+  }
+
+  /* Hide elements that should not be printed */
+  .nav-buttons, .phone-container::before, .phone-container::after {
+    display: none !important;
+  }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="phone-container">
+  <div class="app-content">
+    <!-- The first page of the essay -->
+    <div class="page" id="page1">
+      <div class="front">
+        <header class="mla-header">
+          Joshua Nobel<br>
+          SDEV153<br>
+          03/04/2024
+        </header>
+        <h1>From Cold War Collaboration to Global Phenomenon: A History of the Internet</h1>
+        <p>The internet, a vast network of interconnected computers that has revolutionized communication, information access, and social interaction, boasts a surprisingly recent and fascinating history Its roots lie in the Cold War era, where collaborative efforts between scientists and engineers laid the groundwork for the global phenomenon we know today. This essay explores the key historical milestones that led to the emergence of the internet, highlighting the individuals, institutions, and technological advancements that shaped its evolution.
+        </p>
+        <h4>The Seeds of Connection: ARPANET and Early Networking</h4>
+        <p>The story of the internet begins in the 1960s amidst the backdrop of the Cold War. The United States Department of Defense's Advanced Research Projects Agency (ARPA) recognized the need for a communication system that could withstand potential disruptions during wartime. This led to the creation of the ARPANET (Advanced Research Projects Agency Network) in 1969. Conceived by J.C.R. Licklider, a visionary computer scientist, ARPANET aimed to connect geographically dispersed research institutions and enable resource sharing.
+        </p>
+        <p>The key innovation of ARPANET lies in its use of packet-switching technology. Instead of transmitting data in large blocks, it broke information into smaller packets, allowing for efficient routing through different pathways on the network. This ensured that even if portions of the network were damaged, communication could still be maintained, a crucial feature for the envisioned Cold War context.
+        </p>
+        <h4>The Birth of a Standard: TCP/IP and Interconnectivity</h4>
+        <p>While ARPANET marked a significant step, it was initially limited to a small number of research institutions. The need for a standardized communication protocol across different networks became increasingly evident. Enter Vint Cerf and Robert Kahn, who, in the early 1970s, developed the Transmission Control Protocol/Internet Protocol (TCP/IP). This suite of protocols established a common language for data exchange, enabling diverse networks to communicate seamlessly.
+        </p>
+        <p>Adopting TCP/IP in 1983 is considered a pivotal moment in Internet history. It marked the birth of the internet in its true sense, as it allowed previously isolated networks to interconnect and exchange information. This standardized communication language paved the way for the exponential growth and global reach of the internet in the years to come.
+        </p>
+      </div>
+    </div>
+    
+    <!-- The second page of the essay -->
+    <div class="page" id="page2">
+      <div class="front">
+        <header class="mla-header">
+          Joshua Nobel<br>
+          SDEV153<br>
+          03/04/2024
+        </header>
+        <h4>Beyond Research: The Rise of Personal Use and the World Wide Web</h4>
+        <p>The early 1980s also witnessed the emergence of personal computers, making the Internet more accessible beyond the realm of academic research. The development of electronic mail (email) in the 1970s further facilitated communication and information sharing. However, navigating the vast collection of information on the internet remained a complex task.
+        </p>
+        <p>In 1989, Tim Berners-Lee, a researcher at CERN, the European Organization for Nuclear Research, proposed a revolutionary solution: the World Wide Web. This hypertext system, based on Hypertext Markup Language (HTML) and Hypertext Transfer Protocol (HTTP), allowed users to access information through interconnected web pages linked by hyperlinks. This user-friendly interface significantly enhanced the accessibility and usability of the Internet, paving the way for its widespread adoption by the general public.
+        </p>
+        <h4>The Commercialization and Global Expansion of the Internet</h4>
+        <p>The 1990s witnessed the commercialization of the internet, marking a significant turning point. Internet service providers (ISPs) began offering Internet access to individuals and businesses, leading to its rapid adoption across the globe. The development of web browsers like Mosaic and Netscape Navigator further simplified access to the World Wide Web, making it easier for users to navigate and search for information.
+        </p>
+        <p>The rise of e-commerce, online communication tools like email and instant messaging, and the emergence of search engines like Google and Yahoo! further fueled the growth and popularity of the internet. By the early 2000s, the Internet had become an integral part of everyday life for millions of people worldwide, impacting communication, education, commerce, and social interaction.
+        </p>
+        <h4>Conclusion: A Continuous Evolution</h4>
+        <p>The history of the internet is a testament to human ingenuity and collaboration. From the pioneering work of researchers in the Cold War era to the development of groundbreaking technologies like TCP/IP and the World Wide Web, the Internet has undergone a remarkable transformation. Today, the Internet continues to evolve, with advancements in mobile technologies, social media platforms, and the Internet of Things (IoT) shaping its future.
+        </p>
+        <p>While the internet has brought immense benefits, it also presents challenges such as cyber security threats, misinformation, and the digital divide. As we move forward, addressing these challenges responsibly and ensuring equitable access for all will be crucial in shaping the future of this powerful and ever-evolving technology.
+        </p>
+      </div>
+    </div>
+
+    <!-- The third page of the essay (Bibliography) -->
+    <div class="page" id="page3">
+      <div class="front">
+        <header class="mla-header">
+          Joshua Nobel<br>
+          SDEV153<br>
+          03/04/2024
+        </header>
+        <ul class="bibliography">
+          <li>Hafner, Katie. Where Wizards Stay Up Late: The Origins of the Internet and the Digital Revolution. Simon & Schuster, 1996.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- The fourth page of the essay -->
+    <div class="page" id="page4">
+      <div class="front">
+        <!-- Content of the fourth page -->
+        <img src="internet history.jpg" alt="modern internet world">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="nav-buttons">
+    <button class="nav-button" id="prevButton">Previous</button>
+    <button class="nav-button" id="nextButton">Next</button>
+    <!-- Print Button -->
+    <button id="printButton">Print this page</button>   
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    let currentPage = 1;
+    const totalPages = 4; // Update this if you have more pages
+
+    function goToPage(pageNumber) {
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        // Remove 'active' class from all pages
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+        });
+
+        // Add 'active' class to the desired page
+        const nextPageElement = document.getElementById('page' + pageNumber);
+        nextPageElement.classList.add('active');
+
+        // Update the current page number
+        currentPage = pageNumber;
+
+        // Update the visibility of the navigation buttons
+        document.getElementById('prevButton').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
+        document.getElementById('nextButton').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+      }
+    }
+
+    // Event listeners for navigation buttons
+    document.getElementById('prevButton').addEventListener('click', function() {
+      goToPage(currentPage - 1);
+    });
+
+    document.getElementById('nextButton').addEventListener('click', function() {
+      goToPage(currentPage + 1);
+    });
+
+    // Set the first page as active when the document is ready
+    goToPage(1);
+
+    // Print Document Function
+    function printDocument() {
+      // Make sure all pages are visible before printing
+      document.querySelectorAll('.page').forEach(page => {
+        page.style.display = 'block';
+      });
+
+      // Now, print the document
+      window.print();
+    }
+
+    // Assuming you have a button with id="printButton" for printing
+    const printButton = document.getElementById('printButton');
+    if (printButton) {
+      printButton.addEventListener('click', printDocument);
+    }
+  });
+</script>
+
+
+</body>
+</html>
